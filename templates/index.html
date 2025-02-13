@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Upload File</title>
+
+    <style>
+
+        a {
+            font-size: 20px;
+        }
+        .input{
+            line-height: 1.5;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="input">
+        <a href="#" onclick="execaddfile('addfilei')"> Select images </a>  
+        <br/>
+        <a href="#" onclick="execaddfile('addfilew')"> Select the watermark file </a> 
+    </div>
+
+    <form id="addfilef" action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" class="show" id="addfilei" name="files" multiple>
+        
+        <input type="file" class="show" id="addfilew" name="watermrkpng"/><br/>
+
+        <input list="datalistbox" id="datalistvalue">
+        <datalist id="datalistbox"></datalist>
+
+        <button type="submit" id="addfileb">Send it</button>
+    </form>
+    <p id="inft" style="opacity: 1; color: black;"><i>position number</i>%</p>
+    <br/>
+
+    <img id="imgl" width=80/>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    
+</body>
+</html>
+
